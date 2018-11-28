@@ -35,5 +35,6 @@ namespace Alquileres.Models
         public System.Data.Entity.DbSet<Alquileres.Models.Provincia> Provincias { get; set; }
 
         public System.Data.Entity.DbSet<Alquileres.Models.Empleado> Empleadoes { get; set; }
+        public object Clientes { get; internal set; }
     }
 }
