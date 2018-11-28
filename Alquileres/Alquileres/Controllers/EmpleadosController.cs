@@ -39,5 +39,23 @@ namespace Alquileres.Controllers
         {
             return View();
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Create(Empleado empleado)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Empleadoes.Add(empleado);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(empleado);
+        }
     }
 }
