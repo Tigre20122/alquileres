@@ -1,23 +1,27 @@
-﻿using Alquileres.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Alquileres.Models;
 
 namespace Alquileres.Controllers
 {
     public class ClientesController : Controller
     {
-        ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
+      
         public ActionResult Index()
         {
-            return View();
+            return View(db.Clientes.ToList());
         }
-        public ActionResult Detalle(int? id)
+
+        
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -31,15 +35,16 @@ namespace Alquileres.Controllers
             return View(cliente);
         }
 
-
-        public ActionResult Nuevo()
+        
+        public ActionResult Create()
         {
             return View();
         }
 
-
+        
         [HttpPost]
-        public ActionResult Nuevo(Cliente cliente)
+        
+        public ActionResult Create(Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -50,7 +55,9 @@ namespace Alquileres.Controllers
 
             return View(cliente);
         }
-        public ActionResult Editar(int? id)
+
+      
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -63,8 +70,9 @@ namespace Alquileres.Controllers
             }
             return View(cliente);
         }
-
+        
         [HttpPost]
+       
         public ActionResult Editar(Cliente cliente)
         {
             if (ModelState.IsValid)
@@ -75,6 +83,8 @@ namespace Alquileres.Controllers
             }
             return View(cliente);
         }
+
+
         public ActionResult Eliminar(int? id)
         {
             if (id == null)
@@ -88,7 +98,10 @@ namespace Alquileres.Controllers
             }
             return View(cliente);
         }
+
+        
         [HttpPost]
+       
         public ActionResult Eliminar(int id)
         {
             Cliente cliente = db.Clientes.Find(id);
@@ -96,5 +109,7 @@ namespace Alquileres.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+       
     }
 }
