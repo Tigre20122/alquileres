@@ -29,5 +29,7 @@ namespace Alquileres.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Alquileres.Models.Propietario> Propietarios { get; set; }
     }
 }
