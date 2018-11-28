@@ -5,8 +5,7 @@ using System.Web;
 
 namespace Alquileres.Models
 {
-    public class Cliente
+    public class Propietario
     {
-
     }
 }
