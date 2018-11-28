@@ -7,5 +7,7 @@ namespace Alquileres.Models
 {
     public class ciudad
     {
+        public int CiudadId { get; set; }    
+        public string Detalle { get; set; }
     }
 }
