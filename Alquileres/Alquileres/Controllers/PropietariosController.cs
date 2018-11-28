@@ -1,123 +1,96 @@
-﻿using System;
+﻿using Alquileres.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Alquileres.Models;
 
 namespace Alquileres.Controllers
 {
-    public class ProvinciasController : Controller
+    public class PropietariosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        
         public ActionResult Index()
         {
-            return View(db.Provincias.ToList());
+            return View(db.Propietarios.ToList());
         }
-
-       
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Provincia provincia = db.Provincias.Find(id);
-            if (provincia == null)
+            Propietario propietario = db.Propietarios.Find(id);
+            if (propietario == null)
             {
                 return HttpNotFound();
             }
-            return View(provincia);
+            return View(propietario);
         }
-
-       
         public ActionResult Create()
         {
             return View();
         }
-
-       
         [HttpPost]
-       
-        public ActionResult Create([Bind(Include = "ProvinciaId,Detalle")] Provincia provincia)
+        public ActionResult Create(Propietario propietario)
         {
             if (ModelState.IsValid)
             {
-                db.Provincias.Add(provincia);
+                db.Propietarios.Add(propietario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(provincia);
+            return View(propietario);
         }
 
-        // GET: Provincias/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Provincia provincia = db.Provincias.Find(id);
-            if (provincia == null)
+            Propietario propietario = db.Propietarios.Find(id);
+            if (propietario == null)
             {
                 return HttpNotFound();
             }
-            return View(provincia);
+            return View(propietario);
         }
-
-        
         [HttpPost]
-       
-        public ActionResult Edit([Bind(Include = "ProvinciaId,Detalle")] Provincia provincia)
+        public ActionResult Edit(Propietario propietario)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(provincia).State = EntityState.Modified;
+                db.Entry(propietario).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(provincia);
+            return View(propietario);
         }
-
-       
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Provincia provincia = db.Provincias.Find(id);
-            if (provincia == null)
+            Propietario propietario = db.Propietarios.Find(id);
+            if (propietario == null)
             {
                 return HttpNotFound();
             }
-            return View(provincia);
+            return View(propietario);
         }
-
-       
-        [HttpPost, ActionName("Delete")]
-       
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost]
+        public ActionResult Delete(int id)
         {
-            Provincia provincia = db.Provincias.Find(id);
-            db.Provincias.Remove(provincia);
+            Propietario propietario = db.Propietarios.Find(id);
+            db.Propietarios.Remove(propietario);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
