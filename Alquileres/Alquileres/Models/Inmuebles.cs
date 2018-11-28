@@ -7,5 +7,6 @@ namespace Alquileres.Models
 {
     public class Inmuebles
     {
+        public int MyProperty { get; set; }
     }
 }
