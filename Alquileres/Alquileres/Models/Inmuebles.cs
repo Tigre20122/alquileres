@@ -7,7 +7,6 @@ namespace Alquileres.Models
 {
     public class Inmuebles
     {
-
         public int inmuebleId { get; set; }
         public string calle { get; set; }
         public string colonia { get; set; }
