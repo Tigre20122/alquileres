@@ -13,5 +13,6 @@ namespace Alquileres.Models
         public string ciudad { get; set; }
         public string departamento { get; set; }
         public string tipo { get; set; }
+
     }
 }
