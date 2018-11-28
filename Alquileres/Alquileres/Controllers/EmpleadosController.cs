@@ -12,8 +12,30 @@ namespace Alquileres.Controllers
 {
     public class EmpleadosController : Controller
     {
-        // GET: Empleados
+        private ApplicationDbContext db = new ApplicationDbContext();
+
+
         public ActionResult Index()
+        {
+            return View(db.Empleadoes.ToList());
+        }
+
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Empleado empleado = db.Empleadoes.Find(id);
+            if (empleado == null)
+            {
+                return HttpNotFound();
+            }
+            return View(empleado);
+        }
+
+        public ActionResult Create()
         {
             return View();
         }
