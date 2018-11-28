@@ -10,7 +10,7 @@ namespace Alquileres.Models
     {
         [Key]
         public int PropietarioId { get; set; }
-        [Display(Name ="Nombres")]
+        [Display(Name = "Nombres")]
         [Required]
         public string Nombres { get; set; }
         [Display(Name = "Apellidos")]
@@ -25,6 +25,7 @@ namespace Alquileres.Models
         [Display(Name = "Telefono")]
         [Required]
         public string Telefono { get; set; }
-        
+
+
     }
 }
