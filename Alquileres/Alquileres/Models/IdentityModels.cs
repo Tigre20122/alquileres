@@ -30,11 +30,6 @@ namespace Alquileres.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<Alquileres.Models.Propietario> Propietarios { get; set; }
-
-        public System.Data.Entity.DbSet<Alquileres.Models.Provincia> Provincias { get; set; }
-
-        public System.Data.Entity.DbSet<Alquileres.Models.Empleado> Empleadoes { get; set; }
-        public object Clientes { get; internal set; }
+        
     }
 }
