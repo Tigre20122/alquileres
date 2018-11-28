@@ -21,7 +21,7 @@ namespace Alquileres.Controllers
         }
 
         // GET: Provincias/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Detalles(int? id)
         {
             if (id == null)
             {

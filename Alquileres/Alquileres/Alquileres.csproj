@@ -289,7 +289,7 @@
     <Content Include="Views\Empleados\Create.cshtml" />
     <Content Include="Views\Provincias\Create.cshtml" />
     <Content Include="Views\Provincias\Delete.cshtml" />
-    <Content Include="Views\Provincias\Details.cshtml" />
+    <Content Include="Views\Provincias\Detalles.cshtml" />
     <Content Include="Views\Provincias\Edit.cshtml" />
     <Content Include="Views\Provincias\Index.cshtml" />
   </ItemGroup>
