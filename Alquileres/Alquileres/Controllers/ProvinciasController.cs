@@ -16,8 +16,12 @@ namespace Alquileres.Controllers
 
         
         public ActionResult Index()
+
         {
+
             return View(db.Provincias.ToList());
+
+            
         }
 
         public ActionResult Details(int? id)
