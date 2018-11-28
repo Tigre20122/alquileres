@@ -17,7 +17,7 @@ namespace Alquileres.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Empleadoes.ToList());
+            return View(db.Empleados.ToList());
         }
 
 
@@ -27,7 +27,7 @@ namespace Alquileres.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleado empleado = db.Empleadoes.Find(id);
+            Empleado empleado = db.Empleados.Find(id);
             if (empleado == null)
             {
                 return HttpNotFound();
@@ -35,10 +35,7 @@ namespace Alquileres.Controllers
             return View(empleado);
         }
 
-        public ActionResult Create()
-        {
-            return View();
-        }
+     
         public ActionResult Create()
         {
             return View();
@@ -50,65 +47,12 @@ namespace Alquileres.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Empleadoes.Add(empleado);
+                db.Empleados.Add(empleado);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(empleado);
         }
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Empleado empleado = db.Empleadoes.Find(id);
-            if (empleado == null)
-            {
-                return HttpNotFound();
-            }
-            return View(empleado);
-        }
-
-
-        [HttpPost]
-
-        public ActionResult Edit(Empleado empleado)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(empleado).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(empleado);
-        }
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Empleado empleado = db.Empleadoes.Find(id);
-            if (empleado == null)
-            {
-                return HttpNotFound();
-            }
-            return View(empleado);
-        }
-
-
-        [HttpPost]
-
-        public ActionResult Delete(int id)
-        {
-            Empleado empleado = db.Empleadoes.Find(id);
-            db.Empleadoes.Remove(empleado);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-
     }
 }
