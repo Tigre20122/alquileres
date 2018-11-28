@@ -21,6 +21,7 @@ namespace Alquileres.Controllers
         }
         public ActionResult Detalle(int? id)
         {
+          
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
