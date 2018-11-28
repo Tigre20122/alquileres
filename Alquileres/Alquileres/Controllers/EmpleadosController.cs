@@ -84,5 +84,31 @@ namespace Alquileres.Controllers
             }
             return View(empleado);
         }
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Empleado empleado = db.Empleadoes.Find(id);
+            if (empleado == null)
+            {
+                return HttpNotFound();
+            }
+            return View(empleado);
+        }
+
+
+        [HttpPost]
+
+        public ActionResult Delete(int id)
+        {
+            Empleado empleado = db.Empleadoes.Find(id);
+            db.Empleadoes.Remove(empleado);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
