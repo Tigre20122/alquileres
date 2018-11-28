@@ -213,7 +213,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ciudad.cs" />
+    <Compile Include="Models\Ciudad.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Empleado.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -221,7 +221,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Propietario.cs" />
     <Compile Include="Models\Provincia.cs" />
-    <Compile Include="Models\Sucursales.cs" />
+    <Compile Include="Models\Sucursal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
