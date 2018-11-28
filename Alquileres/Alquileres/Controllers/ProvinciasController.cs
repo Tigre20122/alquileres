@@ -35,18 +35,14 @@ namespace Alquileres.Controllers
             return View(provincia);
         }
 
-        // GET: Provincias/Create
+   
         public ActionResult Nuevo()
         {
             return View();
         }
 
-        // POST: Provincias/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Nuevo([Bind(Include = "ProvinciaId,Detalle")] Provincia provincia)
+       [HttpPost]
+        public ActionResult Nuevo(Provincia provincia)
         {
             if (ModelState.IsValid)
             {
