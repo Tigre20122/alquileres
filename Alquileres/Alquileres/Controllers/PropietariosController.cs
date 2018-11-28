@@ -1,60 +1,51 @@
-﻿using System;
+﻿using Alquileres.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Alquileres.Models;
 
 namespace Alquileres.Controllers
 {
-    public class EmpleadosController : Controller
+    public class PropietariosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-
         public ActionResult Index()
         {
-            return View(db.Empleados.ToList());
+            return View(db.Propietarios.ToList());
         }
-
-
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleado empleado = db.Empleados.Find(id);
-            if (empleado == null)
+            Propietario propietario = db.Propietarios.Find(id);
+            if (propietario == null)
             {
                 return HttpNotFound();
             }
-            return View(empleado);
+            return View(propietario);
         }
-
         public ActionResult Create()
         {
             return View();
         }
-
-
         [HttpPost]
-
-        public ActionResult Create(Empleado empleado)
+        public ActionResult Create(Propietario propietario)
         {
             if (ModelState.IsValid)
             {
-                db.Empleados.Add(empleado);
+                db.Propietarios.Add(propietario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(empleado);
+            return View(propietario);
         }
-
 
         public ActionResult Edit(int? id)
         {
@@ -62,54 +53,44 @@ namespace Alquileres.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleado empleado = db.Empleados.Find(id);
-            if (empleado == null)
+            Propietario propietario = db.Propietarios.Find(id);
+            if (propietario == null)
             {
                 return HttpNotFound();
             }
-            return View(empleado);
+            return View(propietario);
         }
-
-
         [HttpPost]
-
-        public ActionResult Edit(Empleado empleado)
+        public ActionResult Edit(Propietario propietario)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(empleado).State = EntityState.Modified;
+                db.Entry(propietario).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(empleado);
+            return View(propietario);
         }
-
-
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleado empleado = db.Empleados.Find(id);
-            if (empleado == null)
+            Propietario propietario = db.Propietarios.Find(id);
+            if (propietario == null)
             {
                 return HttpNotFound();
             }
-            return View(empleado);
+            return View(propietario);
         }
-
-
         [HttpPost]
-
         public ActionResult Delete(int id)
         {
-            Empleado empleado = db.Empleados.Find(id);
-            db.Empleados.Remove(empleado);
+            Propietario propietario = db.Propietarios.Find(id);
+            db.Propietarios.Remove(propietario);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-
     }
 }

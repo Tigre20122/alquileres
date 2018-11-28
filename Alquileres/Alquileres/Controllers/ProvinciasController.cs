@@ -41,10 +41,12 @@ namespace Alquileres.Controllers
             return View();
         }
 
-       
+        // POST: Provincias/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        
-        public ActionResult Nuevo(Provincia provincia)
+        [ValidateAntiForgeryToken]
+        public ActionResult Nuevo([Bind(Include = "ProvinciaId,Detalle")] Provincia provincia)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,8 @@ namespace Alquileres.Controllers
 
             return View(provincia);
         }
+
+        // GET: Provincias/Edit/5
         public ActionResult Editar(int? id)
         {
             if (id == null)
@@ -69,10 +73,12 @@ namespace Alquileres.Controllers
             return View(provincia);
         }
 
-       
+        // POST: Provincias/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-       
-        public ActionResult Editar(Provincia provincia)
+        [ValidateAntiForgeryToken]
+        public ActionResult Editar([Bind(Include = "ProvinciaId,Detalle")] Provincia provincia)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +89,7 @@ namespace Alquileres.Controllers
             return View(provincia);
         }
 
-        
+        // GET: Provincias/Delete/5
         public ActionResult Eliminar(int? id)
         {
             if (id == null)
@@ -98,8 +104,9 @@ namespace Alquileres.Controllers
             return View(provincia);
         }
 
-        
-        [HttpPost]
+        // POST: Provincias/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public ActionResult Eliminar(int id)
         {
             Provincia provincia = db.Provincias.Find(id);
@@ -108,6 +115,6 @@ namespace Alquileres.Controllers
             return RedirectToAction("Index");
         }
 
-       
+        
     }
 }

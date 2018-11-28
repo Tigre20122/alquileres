@@ -10,106 +10,97 @@ using Alquileres.Models;
 
 namespace Alquileres.Controllers
 {
-    public class EmpleadosController : Controller
+    public class ClientesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-
+        
         public ActionResult Index()
         {
-            return View(db.Empleados.ToList());
+            return View(db.Clientes.ToList());
         }
-
-
-        public ActionResult Details(int? id)
+        public ActionResult Detalle(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleado empleado = db.Empleados.Find(id);
-            if (empleado == null)
+            Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(empleado);
+            return View(cliente);
         }
-
-        public ActionResult Create()
+        public ActionResult Nuevo()
         {
             return View();
         }
-
-
         [HttpPost]
-
-        public ActionResult Create(Empleado empleado)
+       
+        public ActionResult Nuevo(Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                db.Empleados.Add(empleado);
+                db.Clientes.Add(cliente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(empleado);
+            return View(cliente);
         }
 
-
-        public ActionResult Edit(int? id)
+        // GET: Clientes/Edit/5
+        public ActionResult Editar(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleado empleado = db.Empleados.Find(id);
-            if (empleado == null)
+            Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(empleado);
+            return View(cliente);
         }
-
-
         [HttpPost]
-
-        public ActionResult Edit(Empleado empleado)
+        
+        public ActionResult Editar(Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(empleado).State = EntityState.Modified;
+                db.Entry(cliente).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(empleado);
+            return View(cliente);
         }
-
-
-        public ActionResult Delete(int? id)
+        public ActionResult Eliminar(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleado empleado = db.Empleados.Find(id);
-            if (empleado == null)
+            Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(empleado);
+            return View(cliente);
         }
 
-
+        // POST: Clientes/Delete/5
         [HttpPost]
-
-        public ActionResult Delete(int id)
+       
+        public ActionResult Eliminar(int id)
         {
-            Empleado empleado = db.Empleados.Find(id);
-            db.Empleados.Remove(empleado);
+            Cliente cliente = db.Clientes.Find(id);
+            db.Clientes.Remove(cliente);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-
+        
     }
 }
