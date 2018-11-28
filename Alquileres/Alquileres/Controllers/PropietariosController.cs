@@ -86,7 +86,7 @@ namespace Alquileres.Controllers
             return View(propietario);
         }
         [HttpPost]        
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id)
         {
             Propietario propietario = db.Propietarios.Find(id);
             db.Propietarios.Remove(propietario);
