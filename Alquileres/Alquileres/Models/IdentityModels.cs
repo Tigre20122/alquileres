@@ -30,6 +30,19 @@ namespace Alquileres.Models
             return new ApplicationDbContext();
         }
 
-        
+        public DbSet<Cliente> Clientes { get; set; }
+
+        public DbSet<Empleado> Empleados { get; set; }
+
+        public DbSet<Provincia> Provincias { get; set; }
+
+        public DbSet<ciudad> Ciudads { get; set; }
+
+        public DbSet<Sucursales> Sucursales { get; set; }
+
+        public DbSet<Inmuebles> Inmuebles { get; set; }
+
+        public DbSet<Propietario> Propietarios { get; set; }
+
     }
 }
