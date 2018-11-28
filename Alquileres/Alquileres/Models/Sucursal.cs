@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -10,6 +11,5 @@ namespace Alquileres.Models
         [Key]
         public int SucursalId { get; set; }
         
-        public string MyProperty { get; set; }
     }
 }
