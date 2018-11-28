@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-
+ 
 namespace Alquileres.Models
 {
     public class Inmuebles
@@ -22,9 +22,7 @@ namespace Alquileres.Models
         [Display(Name = "departamento")]
         [Required]
         public string departamento { get; set; }
-        [Display(Name = "tipo")]
-        [Required]
-        public string tipo { get; set; }
+     
 
     }
 }
