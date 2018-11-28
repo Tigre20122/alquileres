@@ -59,9 +59,9 @@
             @Html.DisplayFor(modelItem => item.FechaIngreso)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ClienteId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ClienteId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ClienteId })
+            @Html.ActionLink("Editar", "Editar", new { id=item.ClienteId }, new { @class="btn btn-success"}) |
+            @Html.ActionLink("Detalle", "Detalle", new { id=item.ClienteId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id=item.ClienteId }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }
