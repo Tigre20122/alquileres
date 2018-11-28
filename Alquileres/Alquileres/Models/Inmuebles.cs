@@ -22,7 +22,7 @@ namespace Alquileres.Models
         [Display(Name = "departamento")]
         [Required]
         public string departamento { get; set; }
-        [Display(Name = "Tipo")]
+        [Display(Name = "tipo")]
         [Required]
         public string tipo { get; set; }
 
