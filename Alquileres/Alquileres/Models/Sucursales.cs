@@ -7,5 +7,8 @@ namespace Alquileres.Models
 {
     public class Sucursales
     {
+
+        public int SucursalId { get; set; }
+        public string MyProperty { get; set; }
     }
 }
