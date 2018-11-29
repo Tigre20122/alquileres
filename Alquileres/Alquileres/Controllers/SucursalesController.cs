@@ -20,7 +20,7 @@ namespace Alquileres.Controllers
             return View(sucursales.ToList());
         }
 
-        public ActionResult Details(int? id)
+        public ActionResult Mostrar(int? id)
         {
             if (id == null)
             {
@@ -34,7 +34,7 @@ namespace Alquileres.Controllers
             return View(sucursales);
         }
 
-        public ActionResult Create()
+        public ActionResult Nuevo()
         {
             ViewBag.CiudadId = new SelectList(db.Ciudads, "CiudadId", "Detalle");
             ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Nombres");
@@ -43,7 +43,7 @@ namespace Alquileres.Controllers
 
 
         [HttpPost]
-        public ActionResult Create( Sucursales sucursales)
+        public ActionResult Nuevo( Sucursales sucursales)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace Alquileres.Controllers
             return View(sucursales);
         }
 
-        public ActionResult Edit(int? id)
+        public ActionResult Editar(int? id)
         {
             if (id == null)
             {
@@ -75,7 +75,7 @@ namespace Alquileres.Controllers
 
       
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "SucursalId,EmpleadoId,CiudadId,Barrio,calles,telefono")] Sucursales sucursales)
+        public ActionResult Editar([Bind(Include = "SucursalId,EmpleadoId,CiudadId,Barrio,calles,telefono")] Sucursales sucursales)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace Alquileres.Controllers
             return View(sucursales);
         }
 
-        public ActionResult Delete(int? id)
+        public ActionResult Eliminar(int? id)
         {
             if (id == null)
             {
@@ -102,7 +102,7 @@ namespace Alquileres.Controllers
             return View(sucursales);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Eliminar")]
         public ActionResult DeleteConfirmed(int id)
         {
             Sucursales sucursales = db.Sucursales.Find(id);
