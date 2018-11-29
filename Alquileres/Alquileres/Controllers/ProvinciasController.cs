@@ -1,113 +1,81 @@
-﻿using System;
+﻿using Alquileres.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Alquileres.Models;
 
 namespace Alquileres.Controllers
 {
     public class ProvinciasController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-
+        private ApplicationDbContext _context = new ApplicationDbContext();
         // GET: Provincias
-        public ActionResult Index() => View(db.Provincias.ToList());
-
-        // GET: Provincias/Details/5
-        public ActionResult Detalles(int? id)
+        public ActionResult Index()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Provincia provincia = db.Provincias.Find(id);
-            if (provincia == null)
-            {
-                return HttpNotFound();
-            }
-            return View(provincia);
+            return View(_context.Provincias.ToList());
         }
-
-   
         public ActionResult Nuevo()
         {
             return View();
         }
-
-       [HttpPost]
+        [HttpPost]
         public ActionResult Nuevo(Provincia provincia)
         {
             if (ModelState.IsValid)
             {
-                db.Provincias.Add(provincia);
-                db.SaveChanges();
+                _context.Provincias.Add(provincia);
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            return View(provincia);
+            else
+            {
+                return View(provincia);
+            }
         }
-
-        // GET: Provincias/Edit/5
-        public ActionResult Editar(int? id)
+        public ActionResult Editar(int? Id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Provincia provincia = db.Provincias.Find(id);
-            if (provincia == null)
-            {
-                return HttpNotFound();
-            }
-            return View(provincia);
-        }
 
-        // POST: Provincias/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+            Provincia provincia = _context.Provincias.Find(Id);
+            return View(provincia);
+
+        }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Editar([Bind(Include = "ProvinciaId,Detalle")] Provincia provincia)
+        public ActionResult Editar(Provincia provincia)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(provincia).State = EntityState.Modified;
-                db.SaveChanges();
+                _context.Entry(provincia).State = System.Data.Entity.EntityState.Modified;
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
+            else
+            {
+                return View(provincia);
+            }
+        }
+        public ActionResult Eliminar(int? Id)
+        {
+
+            Provincia eliminarSexo = _context.Provincias.Find(Id);
+            return View(eliminarSexo);
+        }
+        [HttpPost]
+        public ActionResult Eliminar(Provincia Id)
+        {
+            if (ModelState.IsValid)
+            {
+                Provincia sex = _context.Provincias.Find(Id);
+                _context.Provincias.Remove(sex);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(Id);
+        }
+        public ActionResult Detalle(int? Id)
+        {
+            Provincia provincia = _context.Provincias.Find(Id);
             return View(provincia);
         }
-
-        // GET: Provincias/Delete/5
-        public ActionResult Eliminar(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Provincia provincia = db.Provincias.Find(id);
-            if (provincia == null)
-            {
-                return HttpNotFound();
-            }
-            return View(provincia);
-        }
-
-        // POST: Provincias/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult Eliminar(int id)
-        {
-            Provincia provincia = db.Provincias.Find(id);
-            db.Provincias.Remove(provincia);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        
     }
 }
