@@ -19,7 +19,7 @@ namespace Alquileres.Controllers
             return View(db.Clientes.ToList());
         }
 
-        public ActionResult Details(int? id)
+        public ActionResult Mostrar(int? id)
         {
             if (id == null)
             {
@@ -33,13 +33,13 @@ namespace Alquileres.Controllers
             return View(cliente);
         }
 
-        public ActionResult Create()
+        public ActionResult Nuevo()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create( Cliente cliente)
+        public ActionResult Nuevo( Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -51,7 +51,7 @@ namespace Alquileres.Controllers
             return View(cliente);
         }
 
-        public ActionResult Edit(int? id)
+        public ActionResult Editar(int? id)
         {
             if (id == null)
             {
@@ -68,7 +68,7 @@ namespace Alquileres.Controllers
         
         [HttpPost]
  
-        public ActionResult Edit([Bind(Include = "ClienteId,Nombres,Apellidos,Telefono,Correo,Categoria,Garantia,FechaIngreso")] Cliente cliente)
+        public ActionResult Editar([Bind(Include = "ClienteId,Nombres,Apellidos,Telefono,Correo,Categoria,Garantia,FechaIngreso")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Alquileres.Controllers
             return View(cliente);
         }
 
-        public ActionResult Delete(int? id)
+        public ActionResult Eliminar(int? id)
         {
             if (id == null)
             {
@@ -93,7 +93,7 @@ namespace Alquileres.Controllers
             return View(cliente);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Eliminar")]
         public ActionResult DeleteConfirmed(int id)
         {
             Cliente cliente = db.Clientes.Find(id);
