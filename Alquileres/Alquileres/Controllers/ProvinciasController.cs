@@ -14,14 +14,14 @@ namespace Alquileres.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        
+        // GET: Provincias
         public ActionResult Index()
         {
             return View(db.Provincias.ToList());
         }
 
-       
-        public ActionResult Details(int? id)
+        // GET: Provincias/Details/5
+        public ActionResult Detalles(int? id)
         {
             if (id == null)
             {
@@ -35,16 +35,14 @@ namespace Alquileres.Controllers
             return View(provincia);
         }
 
-       
-        public ActionResult Create()
+   
+        public ActionResult Nuevo()
         {
             return View();
         }
 
-       
-        [HttpPost]
-       
-        public ActionResult Create([Bind(Include = "ProvinciaId,Detalle")] Provincia provincia)
+       [HttpPost]
+        public ActionResult Nuevo(Provincia provincia)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,7 @@ namespace Alquileres.Controllers
         }
 
         // GET: Provincias/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Editar(int? id)
         {
             if (id == null)
             {
@@ -71,10 +69,12 @@ namespace Alquileres.Controllers
             return View(provincia);
         }
 
-        
+        // POST: Provincias/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-       
-        public ActionResult Edit([Bind(Include = "ProvinciaId,Detalle")] Provincia provincia)
+        [ValidateAntiForgeryToken]
+        public ActionResult Editar([Bind(Include = "ProvinciaId,Detalle")] Provincia provincia)
         {
             if (ModelState.IsValid)
             {
@@ -85,8 +85,8 @@ namespace Alquileres.Controllers
             return View(provincia);
         }
 
-       
-        public ActionResult Delete(int? id)
+        // GET: Provincias/Delete/5
+        public ActionResult Eliminar(int? id)
         {
             if (id == null)
             {
@@ -100,10 +100,10 @@ namespace Alquileres.Controllers
             return View(provincia);
         }
 
-       
+        // POST: Provincias/Delete/5
         [HttpPost, ActionName("Delete")]
-       
-        public ActionResult DeleteConfirmed(int id)
+        [ValidateAntiForgeryToken]
+        public ActionResult Eliminar(int id)
         {
             Provincia provincia = db.Provincias.Find(id);
             db.Provincias.Remove(provincia);
@@ -111,13 +111,6 @@ namespace Alquileres.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        
     }
 }

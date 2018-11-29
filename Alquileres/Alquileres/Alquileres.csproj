@@ -289,10 +289,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Empleados\Create.cshtml" />
-    <Content Include="Views\Provincias\Create.cshtml" />
-    <Content Include="Views\Provincias\Delete.cshtml" />
-    <Content Include="Views\Provincias\Details.cshtml" />
-    <Content Include="Views\Provincias\Edit.cshtml" />
+    <Content Include="Views\Provincias\Nuevo.cshtml" />
+    <Content Include="Views\Provincias\Eliminar.cshtml" />
+    <Content Include="Views\Provincias\Detalles.cshtml" />
+    <Content Include="Views\Provincias\Editar.cshtml" />
     <Content Include="Views\Provincias\Index.cshtml" />
     <Content Include="Views\Clientes\Nuevo.cshtml" />
     <Content Include="Views\Clientes\Eliminar.cshtml" />
