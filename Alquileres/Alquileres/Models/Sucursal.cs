@@ -14,15 +14,14 @@ namespace Alquileres.Models
         public int EmpleadoId { get; set; }
         public Empleado Empleado { get; set; }
 
-
-
         public int CiudadId { get; set; }
         public ciudad ciudad { get; set; }
 
         public string Barrio { get; set; }
-        public string Tipo { get; set; }
-        public string Nhabitaciones { get; set; }
-        public string CostoMensual { get; set; }
+
+        public string calles { get; set; }
+
+        public string telefono { get; set; }
 
     }
 }

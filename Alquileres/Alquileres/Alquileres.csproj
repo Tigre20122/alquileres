@@ -207,6 +207,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InmueblesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PropietariosController.cs" />
     <Compile Include="Controllers\ProvinciasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -222,6 +223,10 @@
     <Compile Include="Migrations\201811290627024_DT3.cs" />
     <Compile Include="Migrations\201811290627024_DT3.Designer.cs">
       <DependentUpon>201811290627024_DT3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811290645312_DT4.cs" />
+    <Compile Include="Migrations\201811290645312_DT4.Designer.cs">
+      <DependentUpon>201811290645312_DT4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -322,6 +327,11 @@
     <Content Include="Views\Inmuebles\Details.cshtml" />
     <Content Include="Views\Inmuebles\Edit.cshtml" />
     <Content Include="Views\Inmuebles\Index.cshtml" />
+    <Content Include="Views\Propietarios\Create.cshtml" />
+    <Content Include="Views\Propietarios\Delete.cshtml" />
+    <Content Include="Views\Propietarios\Details.cshtml" />
+    <Content Include="Views\Propietarios\Edit.cshtml" />
+    <Content Include="Views\Propietarios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -348,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811290627024_DT3.resx">
       <DependentUpon>201811290627024_DT3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811290645312_DT4.resx">
+      <DependentUpon>201811290645312_DT4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
