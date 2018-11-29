@@ -336,7 +336,7 @@
     <Content Include="Views\Propietarios\Index.cshtml" />
     <Content Include="Views\Sucursales\Nuevo.cshtml" />
     <Content Include="Views\Sucursales\Delete.cshtml" />
-    <Content Include="Views\Sucursales\Details.cshtml" />
+    <Content Include="Views\Sucursales\Mostrar.cshtml" />
     <Content Include="Views\Sucursales\Editar.cshtml" />
     <Content Include="Views\Sucursales\Index.cshtml" />
     <Content Include="Views\Contratoes\Create.cshtml" />

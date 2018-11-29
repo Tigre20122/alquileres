@@ -1,10 +1,10 @@
 ﻿@model Alquileres.Models.Sucursales
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Mostrar";
 }
 
-<h2>Details</h2>
+<h2>Mostrar Sucursal Detallada</h2>
 
 <div>
     <h4>Sucursales</h4>
@@ -53,6 +53,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SucursalId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edditar", "Editar", new { id = Model.SucursalId }) |
+    @Html.ActionLink("Regresar a lista ", "Index")
 </p>
