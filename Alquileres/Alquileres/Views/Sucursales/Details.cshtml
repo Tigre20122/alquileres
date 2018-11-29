@@ -1,0 +1,58 @@
+﻿@model Alquileres.Models.Sucursales
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sucursales</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ciudad.Detalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ciudad.Detalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Empleado.Nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empleado.Nombres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Barrio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Barrio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.calles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.calles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SucursalId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
