@@ -11,9 +11,11 @@ namespace Alquileres.Models
         [Key]
         public int CiudadId { get; set; }
         [Display(Name ="Detalle")]
+        [Required]
         public string Detalle { get; set; }
 
         //
+        [Required]
         [Display(Name="Provincia")]
         public int ProvinciaId { get; set; }
         public Provincia Provincias { get; set; }
