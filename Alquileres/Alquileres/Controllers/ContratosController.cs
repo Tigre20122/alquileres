@@ -20,7 +20,7 @@ namespace Alquileres.Controllers
             return View(contratoes.ToList());
         }
 
-        public ActionResult Details(int? id)
+        public ActionResult Mostrar(int? id)
         {
             if (id == null)
             {
@@ -34,7 +34,7 @@ namespace Alquileres.Controllers
             return View(contrato);
         }
 
-        public ActionResult Create()
+        public ActionResult Nuevo()
         {
             ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Nombres");
             ViewBag.InmuebleId = new SelectList(db.Inmuebles, "InmuebleId", "calle");
@@ -42,7 +42,7 @@ namespace Alquileres.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create( Contrato contrato)
+        public ActionResult Nuevo( Contrato contrato)
         {
             if (ModelState.IsValid)
             {
@@ -56,7 +56,7 @@ namespace Alquileres.Controllers
             return View(contrato);
         }
 
-        public ActionResult Edit(int? id)
+        public ActionResult Editar(int? id)
         {
             if (id == null)
             {
@@ -74,7 +74,7 @@ namespace Alquileres.Controllers
 
        
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "ContratoId,ClienteId,InmuebleId,ModoPago,DuracionContrato,FechaInicio,FechaFin")] Contrato contrato)
+        public ActionResult Editar([Bind(Include = "ContratoId,ClienteId,InmuebleId,ModoPago,DuracionContrato,FechaInicio,FechaFin")] Contrato contrato)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace Alquileres.Controllers
             return View(contrato);
         }
 
-        public ActionResult Delete(int? id)
+        public ActionResult Elliminar(int? id)
         {
             if (id == null)
             {
@@ -101,7 +101,7 @@ namespace Alquileres.Controllers
             return View(contrato);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Eliminar")]
         public ActionResult DeleteConfirmed(int id)
         {
             Contrato contrato = db.Contratoes.Find(id);
