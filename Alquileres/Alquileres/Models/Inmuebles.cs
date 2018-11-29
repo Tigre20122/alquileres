@@ -29,5 +29,17 @@ namespace Alquileres.Models
         [Display(Name = "tipo")]
         [Required]
          public string tipo { get; set; }
+        [Display(Name = "Numero de habitaciones")]
+        [Required]
+        public string NumeroHabitaciones { get; set; }
+
+        [Display(Name = "Costo Mensual")]
+        [Required]
+        public string CostoMensual { get; set; }
+
+        [Display(Name = "Propietario")]
+        [Required]
+        public int PropietarioId { get; set; }
+        public Propietario Propietarios { get; set; }
     }
 }

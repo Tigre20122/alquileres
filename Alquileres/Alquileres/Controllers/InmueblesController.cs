@@ -16,7 +16,8 @@ namespace Alquileres.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Inmuebles.ToList());
+            var inmuebles = db.Inmuebles.Include(i => i.ciudades);
+            return View(inmuebles.ToList());
         }
 
         public ActionResult Details(int? id)
@@ -35,10 +36,11 @@ namespace Alquileres.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.CiudadId = new SelectList(db.Ciudads, "CiudadId", "Detalle");
             return View();
         }
 
-   
+      
         [HttpPost]
         public ActionResult Create( Inmuebles inmuebles)
         {
@@ -49,6 +51,7 @@ namespace Alquileres.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CiudadId = new SelectList(db.Ciudads, "CiudadId", "Detalle", inmuebles.CiudadId);
             return View(inmuebles);
         }
 
@@ -63,12 +66,13 @@ namespace Alquileres.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CiudadId = new SelectList(db.Ciudads, "CiudadId", "Detalle", inmuebles.CiudadId);
             return View(inmuebles);
         }
 
+    
         [HttpPost]
-
-        public ActionResult Edit([Bind(Include = "InmuebleId,calle,colonia,ciudad,departamento,tipo")] Inmuebles inmuebles)
+        public ActionResult Edit([Bind(Include = "InmuebleId,calle,barrio,CiudadId,departamento,tipo")] Inmuebles inmuebles)
         {
             if (ModelState.IsValid)
             {
@@ -76,6 +80,7 @@ namespace Alquileres.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CiudadId = new SelectList(db.Ciudads, "CiudadId", "Detalle", inmuebles.CiudadId);
             return View(inmuebles);
         }
 
@@ -94,6 +99,7 @@ namespace Alquileres.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Inmuebles inmuebles = db.Inmuebles.Find(id);
