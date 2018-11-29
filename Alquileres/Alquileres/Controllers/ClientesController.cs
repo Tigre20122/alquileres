@@ -10,14 +10,13 @@ using Alquileres.Models;
 
 namespace Alquileres.Controllers
 {
-    public class ciudadesController : Controller
+    public class ClientesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         public ActionResult Index()
         {
-            var ciudads = db.Ciudads.Include(c => c.Provincias);
-            return View(ciudads.ToList());
+            return View(db.Clientes.ToList());
         }
 
         public ActionResult Details(int? id)
@@ -26,33 +25,30 @@ namespace Alquileres.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ciudad ciudad = db.Ciudads.Find(id);
-            if (ciudad == null)
+            Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(ciudad);
+            return View(cliente);
         }
 
         public ActionResult Create()
         {
-            ViewBag.ProvinciaId = new SelectList(db.Provincias, "ProvinciaId", "Detalle");
             return View();
         }
 
-      
         [HttpPost]
-        public ActionResult Create([Bind(Include = "CiudadId,Detalle,ProvinciaId")] ciudad ciudad)
+        public ActionResult Create( Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                db.Ciudads.Add(ciudad);
+                db.Clientes.Add(cliente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ProvinciaId = new SelectList(db.Provincias, "ProvinciaId", "Detalle", ciudad.ProvinciaId);
-            return View(ciudad);
+            return View(cliente);
         }
 
         public ActionResult Edit(int? id)
@@ -61,27 +57,26 @@ namespace Alquileres.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ciudad ciudad = db.Ciudads.Find(id);
-            if (ciudad == null)
+            Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ProvinciaId = new SelectList(db.Provincias, "ProvinciaId", "Detalle", ciudad.ProvinciaId);
-            return View(ciudad);
+            return View(cliente);
         }
 
-
+        
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "CiudadId,Detalle,ProvinciaId")] ciudad ciudad)
+ 
+        public ActionResult Edit([Bind(Include = "ClienteId,Nombres,Apellidos,Telefono,Correo,Categoria,Garantia,FechaIngreso")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(ciudad).State = EntityState.Modified;
+                db.Entry(cliente).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ProvinciaId = new SelectList(db.Provincias, "ProvinciaId", "Detalle", ciudad.ProvinciaId);
-            return View(ciudad);
+            return View(cliente);
         }
 
         public ActionResult Delete(int? id)
@@ -90,19 +85,19 @@ namespace Alquileres.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ciudad ciudad = db.Ciudads.Find(id);
-            if (ciudad == null)
+            Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(ciudad);
+            return View(cliente);
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            ciudad ciudad = db.Ciudads.Find(id);
-            db.Ciudads.Remove(ciudad);
+            Cliente cliente = db.Clientes.Find(id);
+            db.Clientes.Remove(cliente);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
