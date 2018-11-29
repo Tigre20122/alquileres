@@ -10,7 +10,8 @@ namespace Alquileres.Models
     {
         [Key]
         public int CiudadId { get; set; }
-       
+        [Display(Name ="Detalle")]
+        
         public string Detalle { get; set; }
     }
 }
