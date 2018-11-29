@@ -20,7 +20,7 @@ namespace Alquileres.Controllers
             return View(ciudads.ToList());
         }
 
-        public ActionResult Details(int? id)
+        public ActionResult Mostrar(int? id)
         {
             if (id == null)
             {
@@ -34,7 +34,7 @@ namespace Alquileres.Controllers
             return View(ciudad);
         }
 
-        public ActionResult Create()
+        public ActionResult Nuevo()
         {
             ViewBag.ProvinciaId = new SelectList(db.Provincias, "ProvinciaId", "Detalle");
             return View();
@@ -42,7 +42,7 @@ namespace Alquileres.Controllers
 
       
         [HttpPost]
-        public ActionResult Create([Bind(Include = "CiudadId,Detalle,ProvinciaId")] ciudad ciudad)
+        public ActionResult Nuevo(ciudad ciudad)
         {
             if (ModelState.IsValid)
             {
@@ -55,7 +55,7 @@ namespace Alquileres.Controllers
             return View(ciudad);
         }
 
-        public ActionResult Edit(int? id)
+        public ActionResult Editar(int? id)
         {
             if (id == null)
             {
@@ -72,7 +72,7 @@ namespace Alquileres.Controllers
 
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "CiudadId,Detalle,ProvinciaId")] ciudad ciudad)
+        public ActionResult Editar([Bind(Include = "CiudadId,Detalle,ProvinciaId")] ciudad ciudad)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace Alquileres.Controllers
             return View(ciudad);
         }
 
-        public ActionResult Delete(int? id)
+        public ActionResult Eliminar(int? id)
         {
             if (id == null)
             {
@@ -98,7 +98,7 @@ namespace Alquileres.Controllers
             return View(ciudad);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Eliminar")]
         public ActionResult DeleteConfirmed(int id)
         {
             ciudad ciudad = db.Ciudads.Find(id);
