@@ -349,9 +349,9 @@
     <Content Include="Views\Contratoes\Edit.cshtml" />
     <Content Include="Views\Contratoes\Index.cshtml" />
     <Content Include="Views\Contratos\Nuevo.cshtml" />
-    <Content Include="Views\Contratos\Delete.cshtml" />
-    <Content Include="Views\Contratos\Details.cshtml" />
-    <Content Include="Views\Contratos\Edit.cshtml" />
+    <Content Include="Views\Contratos\Eliminar.cshtml" />
+    <Content Include="Views\Contratos\Mostrar.cshtml" />
+    <Content Include="Views\Contratos\Editar.cshtml" />
     <Content Include="Views\Contratos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

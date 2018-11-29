@@ -1,11 +1,12 @@
 ﻿@model Alquileres.Models.Contrato
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Eliminar";
 }
 
-<h2>Details</h2>
+<h2>Eliminar</h2>
 
+<h3>Esta seguro de eliminiar el contrato ?</h3>
 <div>
     <h4>Contrato</h4>
     <hr />
@@ -59,8 +60,13 @@
         </dd>
 
     </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar a la lista", "Index")
+        </div>
+    }
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ContratoId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
