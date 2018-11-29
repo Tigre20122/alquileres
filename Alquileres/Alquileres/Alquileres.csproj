@@ -203,7 +203,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ciudadesController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
-    <Compile Include="Controllers\ContratoesController.cs" />
+    <Compile Include="Controllers\ContratosController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InmueblesController.cs" />
@@ -229,6 +229,10 @@
     <Compile Include="Migrations\201811290645312_DT4.cs" />
     <Compile Include="Migrations\201811290645312_DT4.Designer.cs">
       <DependentUpon>201811290645312_DT4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811291348579_DT7.cs" />
+    <Compile Include="Migrations\201811291348579_DT7.Designer.cs">
+      <DependentUpon>201811291348579_DT7.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -344,6 +348,11 @@
     <Content Include="Views\Contratoes\Details.cshtml" />
     <Content Include="Views\Contratoes\Edit.cshtml" />
     <Content Include="Views\Contratoes\Index.cshtml" />
+    <Content Include="Views\Contratos\Create.cshtml" />
+    <Content Include="Views\Contratos\Delete.cshtml" />
+    <Content Include="Views\Contratos\Details.cshtml" />
+    <Content Include="Views\Contratos\Edit.cshtml" />
+    <Content Include="Views\Contratos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -373,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811290645312_DT4.resx">
       <DependentUpon>201811290645312_DT4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811291348579_DT7.resx">
+      <DependentUpon>201811291348579_DT7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
