@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Alquileres.Models.Inmuebles>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.calle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.colonia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ciudad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.calle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.colonia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ciudad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.departamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.InmuebleId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.InmuebleId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.InmuebleId })
+        </td>
+    </tr>
+}
+
+</table>
