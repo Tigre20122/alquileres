@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201811290613066_DT2.Designer.cs">
       <DependentUpon>201811290613066_DT2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811290627024_DT3.cs" />
+    <Compile Include="Migrations\201811290627024_DT3.Designer.cs">
+      <DependentUpon>201811290627024_DT3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Ciudad.cs" />
@@ -341,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811290613066_DT2.resx">
       <DependentUpon>201811290613066_DT2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811290627024_DT3.resx">
+      <DependentUpon>201811290627024_DT3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

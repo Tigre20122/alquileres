@@ -14,12 +14,14 @@ namespace Alquileres.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        // GET: Inmuebles
         public ActionResult Index()
         {
-            var inmuebles = db.Inmuebles.Include(i => i.ciudades);
+            var inmuebles = db.Inmuebles.Include(i => i.ciudades).Include(i => i.Propietarios);
             return View(inmuebles.ToList());
         }
 
+        // GET: Inmuebles/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -34,15 +36,20 @@ namespace Alquileres.Controllers
             return View(inmuebles);
         }
 
+        // GET: Inmuebles/Create
         public ActionResult Create()
         {
             ViewBag.CiudadId = new SelectList(db.Ciudads, "CiudadId", "Detalle");
+            ViewBag.PropietarioId = new SelectList(db.Propietarios, "PropietarioId", "Nombres");
             return View();
         }
 
-      
+        // POST: Inmuebles/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create( Inmuebles inmuebles)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "InmuebleId,calle,barrio,CiudadId,departamento,tipo,NumeroHabitaciones,CostoMensual,PropietarioId")] Inmuebles inmuebles)
         {
             if (ModelState.IsValid)
             {
@@ -52,9 +59,11 @@ namespace Alquileres.Controllers
             }
 
             ViewBag.CiudadId = new SelectList(db.Ciudads, "CiudadId", "Detalle", inmuebles.CiudadId);
+            ViewBag.PropietarioId = new SelectList(db.Propietarios, "PropietarioId", "Nombres", inmuebles.PropietarioId);
             return View(inmuebles);
         }
 
+        // GET: Inmuebles/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -67,12 +76,16 @@ namespace Alquileres.Controllers
                 return HttpNotFound();
             }
             ViewBag.CiudadId = new SelectList(db.Ciudads, "CiudadId", "Detalle", inmuebles.CiudadId);
+            ViewBag.PropietarioId = new SelectList(db.Propietarios, "PropietarioId", "Nombres", inmuebles.PropietarioId);
             return View(inmuebles);
         }
 
-    
+        // POST: Inmuebles/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "InmuebleId,calle,barrio,CiudadId,departamento,tipo")] Inmuebles inmuebles)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "InmuebleId,calle,barrio,CiudadId,departamento,tipo,NumeroHabitaciones,CostoMensual,PropietarioId")] Inmuebles inmuebles)
         {
             if (ModelState.IsValid)
             {
@@ -81,9 +94,11 @@ namespace Alquileres.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CiudadId = new SelectList(db.Ciudads, "CiudadId", "Detalle", inmuebles.CiudadId);
+            ViewBag.PropietarioId = new SelectList(db.Propietarios, "PropietarioId", "Nombres", inmuebles.PropietarioId);
             return View(inmuebles);
         }
 
+        // GET: Inmuebles/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -98,6 +113,7 @@ namespace Alquileres.Controllers
             return View(inmuebles);
         }
 
+        // POST: Inmuebles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -106,6 +122,15 @@ namespace Alquileres.Controllers
             db.Inmuebles.Remove(inmuebles);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
