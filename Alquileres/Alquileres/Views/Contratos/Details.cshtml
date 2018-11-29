@@ -1,0 +1,66 @@
+﻿@model Alquileres.Models.Contrato
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contrato</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nombres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Inmuebles.calle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inmuebles.calle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModoPago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModoPago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DuracionContrato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DuracionContrato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaFin)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ContratoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
