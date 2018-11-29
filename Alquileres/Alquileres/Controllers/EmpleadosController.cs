@@ -66,7 +66,7 @@ namespace Alquileres.Controllers
             return View(empleado);
         }
 
-    
+
         [HttpPost]
         public ActionResult Edit([Bind(Include = "EmpleadoId,Nombres,Apellidos,Direccion,Cargo,Salario,Correo,Fecha,Edad")] Empleado empleado)
         {
