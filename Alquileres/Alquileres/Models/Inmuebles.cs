@@ -10,21 +10,22 @@ namespace Alquileres.Models
     {
         [Key]
         public int InmuebleId { get; set; }
-        [Display(Name ="calle")]
+        [Display(Name ="CALLE")]
         [Required]
+
         public string calle { get; set; }
-        [Display(Name = "colonia")]
+        [Display(Name = "COLONIA")]
         [Required]
         public string colonia { get; set; }
-        [Display(Name = "ciudad")]
+        [Display(Name = "CIUDAD")]
         [Required]
         public string ciudad { get; set; }
-        [Display(Name = "departamento")]
+        [Display(Name = "DEPARTAMENTO")]
         [Required]
         public string departamento { get; set; }
-        [Display(Name = "tipo")]
+        [Display(Name = "TIPO")]
         [Required]
-        public string tipo { get; set; }
+         public string tipo { get; set; }
 
     }
 }
