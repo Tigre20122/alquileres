@@ -50,8 +50,6 @@ namespace Alquileres.Controllers
 
             return View(cliente);
         }
-
-        // GET: Clientes/Edit/5
         public ActionResult Editar(int? id)
         {
             if (id == null)
@@ -66,7 +64,6 @@ namespace Alquileres.Controllers
             return View(cliente);
         }
         [HttpPost]
-        
         public ActionResult Editar(Cliente cliente)
         {
             if (ModelState.IsValid)
@@ -90,8 +87,6 @@ namespace Alquileres.Controllers
             }
             return View(cliente);
         }
-
-        // POST: Clientes/Delete/5
         [HttpPost]
        
         public ActionResult Eliminar(int id)
@@ -101,7 +96,5 @@ namespace Alquileres.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        
     }
 }
