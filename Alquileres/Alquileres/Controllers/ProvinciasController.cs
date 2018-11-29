@@ -18,6 +18,7 @@ namespace Alquileres.Controllers
         public ActionResult Index()
         {
             return View(db.Provincias.ToList());
+            
         }
 
         // GET: Provincias/Details/5
