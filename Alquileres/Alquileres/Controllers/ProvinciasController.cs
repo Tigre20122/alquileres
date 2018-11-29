@@ -15,11 +15,7 @@ namespace Alquileres.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Provincias
-        public ActionResult Index()
-        {
-            return View(db.Provincias.ToList());
-            
-        }
+        public ActionResult Index() => View(db.Provincias.ToList());
 
         // GET: Provincias/Details/5
         public ActionResult Detalles(int? id)
