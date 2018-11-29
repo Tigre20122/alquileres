@@ -14,7 +14,7 @@ namespace Alquileres.Models
         public string Detalle { get; set; }
 
         //
-
+        [Display(Name="Provincia")]
         public int ProvinciaId { get; set; }
         public Provincia Provincias { get; set; }
     }
