@@ -37,7 +37,7 @@ namespace Alquileres.Controllers
         {
             return View();
         }
-     
+
         [HttpPost]
 
         public ActionResult Create(Provincia provincia)
