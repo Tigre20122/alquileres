@@ -10,7 +10,7 @@ namespace Alquileres.Models
     {
         [Key]
         public int SucursalId { get; set; }
-
+        [Display(Name="Empleado")]
         public int EmpleadoId { get; set; }
         public Empleado Empleado { get; set; }
 
