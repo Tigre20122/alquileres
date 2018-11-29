@@ -22,7 +22,7 @@ namespace Alquileres.Models
 
         public string ModoPago { get; set; }
         public string DuracionContrato { get; set; }
-        public string FechaInicio { get; set; }
-        public string FechaFin { get; set; }
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
     }
 }

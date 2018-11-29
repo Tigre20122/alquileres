@@ -44,5 +44,6 @@ namespace Alquileres.Models
 
         public DbSet<Propietario> Propietarios { get; set; }
 
+        public System.Data.Entity.DbSet<Alquileres.Models.Contrato> Contratoes { get; set; }
     }
 }

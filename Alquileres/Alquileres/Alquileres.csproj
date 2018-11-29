@@ -203,6 +203,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ciudadesController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\ContratoesController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InmueblesController.cs" />
@@ -338,6 +339,11 @@
     <Content Include="Views\Sucursales\Details.cshtml" />
     <Content Include="Views\Sucursales\Edit.cshtml" />
     <Content Include="Views\Sucursales\Index.cshtml" />
+    <Content Include="Views\Contratoes\Create.cshtml" />
+    <Content Include="Views\Contratoes\Delete.cshtml" />
+    <Content Include="Views\Contratoes\Details.cshtml" />
+    <Content Include="Views\Contratoes\Edit.cshtml" />
+    <Content Include="Views\Contratoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
