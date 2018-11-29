@@ -43,7 +43,7 @@ namespace Alquileres.Controllers
 
 
         [HttpPost]
-        public ActionResult Nuevo( Sucursales sucursales)
+        public ActionResult Nuevo(Sucursales sucursales)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +73,7 @@ namespace Alquileres.Controllers
             return View(sucursales);
         }
 
-      
+
         [HttpPost]
         public ActionResult Editar([Bind(Include = "SucursalId,EmpleadoId,CiudadId,Barrio,calles,telefono")] Sucursales sucursales)
         {
